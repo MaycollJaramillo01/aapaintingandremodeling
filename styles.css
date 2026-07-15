@@ -164,6 +164,15 @@ a {
   letter-spacing: -0.04em;
 }
 
+.brand-logo {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  border-radius: 10px;
+  background: #050505;
+  object-fit: contain;
+}
+
 .brand-name {
   max-width: 8rem;
   font-size: 0.79rem;
@@ -1057,7 +1066,7 @@ a {
   }
 
   .brand-name {
-    display: none;
+    max-width: 8rem;
   }
 
   .hero-image {
