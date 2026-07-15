@@ -1,810 +1,276 @@
-<!-- PARTE 1/3: CSS GLOBAL - pegar primero en un bloque HTML o en el Head/Page Custom Code de GoDaddy -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap">
-
-<style>
-/* ===============================
-   AA Painting - GoDaddy Full Width
-   Header removido. Código pensado para insertar como bloque.
-   =============================== */
-
-html, body {
-  overflow-x: hidden;
-}
-
-/* Solución principal para que NO quede boxed dentro de GoDaddy.
-   Funciona si el bloque NO está dentro de iframe ni contenedor con overflow:hidden. */
-.aa-fullbleed {
-  --aa-navy: #18298c;
-  --aa-blue: #30478c;
-  --aa-red: #d90404;
-  --aa-burgundy: #730202;
-  --aa-paper: #f2f2f2;
-  --aa-text: #111827;
-  --aa-muted: #40514f;
-  --aa-border: #c8ced8;
-
-  position: relative;
-  left: 50%;
-  right: 50%;
-  width: 100vw !important;
-  max-width: 100vw !important;
-  margin-left: -50vw !important;
-  margin-right: -50vw !important;
-
-  background: var(--aa-paper);
-  color: var(--aa-text);
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  line-height: 1.5;
-  overflow: hidden;
-}
-
-.aa-fullbleed *,
-.aa-fullbleed *::before,
-.aa-fullbleed *::after {
-  box-sizing: border-box;
-}
-
-.aa-fullbleed img,
-.aa-fullbleed iframe {
-  display: block;
-  max-width: 100%;
-}
-
-.aa-section {
-  width: 100%;
-  padding: clamp(3rem, 6vw, 5rem) max(1.1rem, 5vw);
-}
-
-.aa-inner {
-  width: min(1180px, 100%);
-  margin: 0 auto;
-}
-
-.aa-row {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: clamp(1.25rem, 3vw, 2.5rem);
-  align-items: center;
-}
-
-.aa-col-12 { grid-column: span 12; }
-.aa-col-7 { grid-column: span 7; }
-.aa-col-6 { grid-column: span 6; }
-.aa-col-5 { grid-column: span 5; }
-
-.aa-eyebrow {
-  margin: 0 0 .85rem;
-  color: var(--aa-red);
-  font-size: .875rem;
-  font-weight: 800;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-}
-
-.aa-fullbleed h1,
-.aa-fullbleed h2,
-.aa-fullbleed h3,
-.aa-fullbleed p {
-  margin: 0;
-}
-
-.aa-fullbleed h1,
-.aa-fullbleed h2,
-.aa-fullbleed h3 {
-  color: var(--aa-navy);
-  font-weight: 800;
-  letter-spacing: -.035em;
-  line-height: 1.04;
-  text-wrap: balance;
-}
-
-.aa-fullbleed h1 {
-  max-width: 13ch;
-  font-size: clamp(3rem, 6.5vw, 6rem);
-}
-
-.aa-fullbleed h2 {
-  font-size: clamp(2.2rem, 4.2vw, 3.8rem);
-}
-
-.aa-fullbleed h3 {
-  font-size: 1.25rem;
-}
-
-.aa-lead {
-  max-width: 58ch;
-  color: #334155;
-  font-size: clamp(1.08rem, 2vw, 1.35rem);
-  font-weight: 500;
-}
-
-.aa-text {
-  max-width: 68ch;
-  color: var(--aa-muted);
-  font-size: 1.05rem;
-  line-height: 1.7;
-}
-
-.aa-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.aa-button-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .85rem;
-  margin-top: .6rem;
-}
-
-.aa-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: max-content;
-  max-width: 100%;
-  min-height: 48px;
-  padding: .85rem 1.35rem;
-  border: 1px solid var(--aa-red);
-  border-radius: 8px;
-  background: var(--aa-red);
-  color: #fff !important;
-  font-weight: 800;
-  line-height: 1.1;
-  text-decoration: none !important;
-  box-shadow: 0 12px 28px rgba(217, 4, 4, .22);
-  cursor: pointer;
-}
-
-.aa-btn:hover {
-  filter: brightness(.95);
-}
-
-.aa-btn-dark {
-  border-color: #050505;
-  background: #050505;
-  box-shadow: none;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
-
-.aa-btn-outline {
-  background: transparent;
-  color: var(--aa-navy) !important;
-  border-color: var(--aa-navy);
-  box-shadow: none;
-}
-
-.aa-image {
-  width: 100%;
-  min-height: 280px;
-  object-fit: cover;
-  border-radius: 22px;
-  background: #e5e7eb;
-}
-
-.aa-hero {
-  background: var(--aa-paper);
-}
-
-.aa-hero .aa-image {
-  height: min(620px, 70vh);
-  border: 10px solid #fff;
-  box-shadow: 0 28px 80px rgba(24, 41, 140, .18);
-}
-
-.aa-white {
-  background: #fff;
-}
-
-.aa-card-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem;
-  margin-top: 1.5rem;
-}
-
-.aa-card {
-  min-height: 170px;
-  padding: 1.35rem;
-  border: 1px solid var(--aa-border);
-  border-radius: 18px;
-  background: #fff;
-}
-
-.aa-card .aa-index {
-  display: block;
-  margin-bottom: .55rem;
-  color: var(--aa-red);
-  font-size: .8rem;
-  font-weight: 900;
-}
-
-.aa-card h3 {
-  margin-bottom: .45rem;
-  font-size: 1.15rem;
-}
-
-.aa-card p {
-  color: var(--aa-muted);
-  font-size: .95rem;
-}
-
-.aa-gallery-head {
-  margin-bottom: 2rem;
-}
-
-.aa-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.15rem;
-}
-
-.aa-gallery figure {
-  overflow: hidden;
-  margin: 0;
-  border: 1px solid var(--aa-border);
-  border-radius: 18px;
-  background: #fff;
-}
-
-.aa-gallery img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-}
-
-.aa-gallery figcaption {
-  display: flex;
-  min-height: 74px;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: .95rem 1rem;
-  color: #243b37;
-  font-weight: 800;
-}
-
-.aa-gallery-number {
-  color: var(--aa-red);
-  font-size: .85rem;
-  font-weight: 900;
-}
-
-.aa-contact {
-  padding: 0;
-  background: #fff;
-}
-
-.aa-contact .aa-inner {
-  width: 100%;
-  max-width: none;
-}
-
-.aa-contact .aa-row {
-  gap: 0;
-  align-items: stretch;
-  min-height: 680px;
-}
-
-.aa-contact-info {
-  justify-content: center;
-  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 7vw, 8rem);
-  background: #fff;
-}
-
-.aa-contact h2 {
-  color: #8f898f;
-  font-size: clamp(3rem, 5vw, 4.7rem);
-  line-height: .95;
-}
-
-.aa-contact h2::after {
-  content: "";
-  display: block;
-  width: 48px;
-  height: 2px;
-  margin-top: 2.2rem;
-  background: #ddd;
-}
-
-.aa-business {
-  display: flex;
-  flex-direction: column;
-  gap: .65rem;
-  margin: 1.25rem 0;
-  color: #263238;
-  font-style: normal;
-  font-size: 1.05rem;
-}
-
-.aa-business strong {
-  color: #111;
-  font-size: 1.25rem;
-}
-
-.aa-business a {
-  width: max-content;
-  color: #111 !important;
-  text-decoration: none !important;
-}
-
-.aa-business a:hover {
-  text-decoration: underline !important;
-}
-
-.aa-map {
-  height: 100%;
-  min-height: 680px;
-  background: #eef2f7;
-}
-
-.aa-map iframe {
-  width: 100%;
-  height: 100%;
-  min-height: 680px;
-  border: 0;
-}
-
-.aa-quote {
-  background: var(--aa-paper);
-}
-
-.aa-form-box {
-  width: min(980px, 100%);
-  margin: 0 auto;
-  text-align: center;
-}
-
-.aa-form-box .aa-text {
-  margin: .8rem auto 0;
-}
-
-.aa-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-top: 1.5rem;
-  padding: clamp(1.25rem, 3vw, 2rem);
-  border: 1px solid rgba(17, 24, 39, .18);
-  border-radius: 18px;
-  background: #fff;
-  text-align: left;
-}
-
-.aa-form label {
-  display: grid;
-  gap: .4rem;
-  color: #111827;
-  font-size: .9rem;
-  font-weight: 700;
-}
-
-.aa-form input,
-.aa-form textarea {
-  width: 100%;
-  min-height: 48px;
-  padding: .8rem;
-  border: 1px solid rgba(17, 24, 39, .35);
-  border-radius: 10px;
-  background: #fff;
-  color: #111827;
-  font: inherit;
-}
-
-.aa-form textarea {
-  min-height: 140px;
-  resize: vertical;
-}
-
-.aa-form .aa-wide,
-.aa-form button {
-  grid-column: 1 / -1;
-}
-
-.aa-faq {
-  background: var(--aa-burgundy);
-  color: #fff;
-}
-
-.aa-faq h2,
-.aa-faq .aa-text,
-.aa-faq .aa-eyebrow {
-  color: #fff;
-}
-
-.aa-faq-list {
-  width: min(980px, 100%);
-  margin: 1.8rem auto 0;
-}
-
-.aa-faq details {
-  margin-bottom: .85rem;
-  border: 1px solid rgba(255, 255, 255, .25);
-  border-radius: 18px;
-  background: #fff;
-  color: #111827;
-  box-shadow: 0 14px 34px rgba(24, 41, 140, .12);
-}
-
-.aa-faq summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1.15rem 1.35rem;
-  color: var(--aa-navy);
-  list-style: none;
-  font-weight: 900;
-  cursor: pointer;
-}
-
-.aa-faq summary::-webkit-details-marker {
-  display: none;
-}
-
-.aa-faq summary::after {
-  content: "+";
-  display: grid;
-  width: 28px;
-  height: 28px;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--aa-red);
-  color: #fff;
-}
-
-.aa-faq details[open] summary::after {
-  content: "−";
-}
-
-.aa-faq details p {
-  padding: 0 1.35rem 1.25rem;
-  color: var(--aa-muted);
-}
-
-.aa-footer {
-  background: var(--aa-navy);
-  color: #fff;
-}
-
-.aa-footer .aa-row {
-  align-items: start;
-}
-
-.aa-footer a {
-  color: #fff !important;
-}
-
-.aa-footer-brand {
-  display: flex;
-  align-items: center;
-  gap: .8rem;
-  color: #fff !important;
-  text-decoration: none !important;
-  font-weight: 900;
-}
-
-.aa-footer-brand img {
-  width: 52px;
-  height: 52px;
-  object-fit: contain;
-}
-
-.aa-footer .aa-business {
-  color: #fff;
-}
-
-.aa-footer .aa-business strong,
-.aa-footer .aa-business a {
-  color: #fff !important;
-}
-
-@media (max-width: 1024px) {
-  .aa-col-7,
-  .aa-col-6,
-  .aa-col-5 {
-    grid-column: span 12;
-  }
-
-  .aa-card-grid,
-  .aa-gallery {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .aa-contact .aa-row {
-    min-height: 0;
-  }
-}
-
-@media (max-width: 640px) {
-  .aa-section {
-    padding: 3rem 1.1rem;
-  }
-
-  .aa-card-grid,
-  .aa-gallery,
-  .aa-form {
-    grid-template-columns: 1fr;
-  }
-
-  .aa-fullbleed h1 {
-    font-size: 2.8rem;
-  }
-
-  .aa-hero .aa-image {
-    height: 360px;
-  }
-
-  .aa-contact-info {
-    padding: 3rem 1.25rem;
-  }
-
-  .aa-contact h2 {
-    font-size: 3rem;
-  }
-
-  .aa-map,
-  .aa-map iframe {
-    min-height: 380px;
-  }
-
-  .aa-gallery img {
-    height: 240px;
-  }
-}
-</style>
-
-
-<!-- PARTE 2/3: HERO + ABOUT + GALLERY - pegar después del CSS -->
-<div id="aa-painting-page-top" class="aa-fullbleed">
-  <section id="aa-hero" class="aa-section aa-hero">
-    <div class="aa-inner">
-      <div class="aa-row">
-        <div class="aa-col-6 aa-stack">
-          <p class="aa-eyebrow">AA Painting &amp; Remodeling</p>
-          <h1>Expert Home Repair &amp; Renovation Services</h1>
-          <p class="aa-lead">Reliable home repair solutions for lasting quality</p>
-          <p class="aa-text">AA Painting &amp; Remodeling helps homeowners in High Point repair, repaint, and renovate their spaces with careful workmanship, direct communication, and clean results.</p>
-          <div class="aa-button-row">
-            <a class="aa-btn" href="#aa-quote">Request a Free Quote</a>
-            <a class="aa-btn aa-btn-outline" href="tel:+13365609847">Call Now</a>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#15382d" />
+    <meta
+      name="description"
+      content="AA Painting & Remodeling delivers careful interior painting, exterior painting and residential remodeling with clean communication and beautiful finishes."
+    />
+    <meta property="og:title" content="AA Painting & Remodeling" />
+    <meta
+      property="og:description"
+      content="Your home, finished with care. Painting and remodeling built around the way you live."
+    />
+    <meta property="og:image" content="/assets/hero-painting.png" />
+    <meta property="og:type" content="website" />
+    <title>AA Painting &amp; Remodeling | Crafted for Home</title>
+    <link rel="preload" href="/assets/hero-painting.png" as="image" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <span class="header-sentinel" aria-hidden="true"></span>
+
+    <header class="site-header" data-header>
+      <div class="nav-shell">
+        <a class="brand" href="#top" aria-label="AA Painting and Remodeling home">
+          <span class="brand-mark" aria-hidden="true">AA</span>
+          <span class="brand-name">Painting <span>&amp;</span> Remodeling</span>
+        </a>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-menu"
+          aria-label="Open navigation"
+          data-menu-toggle
+        >
+          <span></span><span></span>
+        </button>
+
+        <nav class="site-nav" id="site-menu" aria-label="Primary navigation" data-menu>
+          <a href="#services">Services</a>
+          <a href="#work">Our work</a>
+          <a href="#process">Process</a>
+          <a href="#about">About</a>
+          <a class="nav-cta" href="#contact">Get an estimate</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <img
+          class="hero-image"
+          src="/assets/hero-painting.png"
+          alt="Professional painter applying a deep green finish in a bright living room"
+          width="1536"
+          height="1024"
+          fetchpriority="high"
+        />
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="eyebrow reveal">Painting and remodeling done right</p>
+          <h1 class="reveal">Your home,<br /><em>finished with care.</em></h1>
+          <p class="hero-copy reveal">
+            Thoughtful updates, precise finishes and one team from first conversation to final walkthrough.
+          </p>
+          <div class="hero-actions reveal">
+            <a class="button button-primary" href="#contact">Request a free estimate</a>
+            <a class="text-link" href="#work">See recent work <span aria-hidden="true">↘</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-band" aria-label="Our service promise">
+        <div class="trust-item"><strong>Clear plans</strong><span>Know what happens next</span></div>
+        <div class="trust-item"><strong>Clean work</strong><span>Your home stays respected</span></div>
+        <div class="trust-item"><strong>Careful finish</strong><span>Details checked before we leave</span></div>
+      </section>
+
+      <section class="section services" id="services">
+        <div class="section-intro reveal">
+          <h2>One trusted team.<br />Every surface considered.</h2>
+          <p>From a single room to a complete refresh, we plan the work carefully and finish it beautifully.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-feature reveal">
+            <div class="service-number">01</div>
+            <div>
+              <h3>Interior painting</h3>
+              <p>Walls, ceilings, trim, doors and cabinetry with thorough prep and crisp, durable finishes.</p>
+              <a class="text-link" href="#contact">Plan your interior <span aria-hidden="true">↘</span></a>
+            </div>
+          </article>
+
+          <article class="service-panel service-panel-accent reveal">
+            <div class="service-number">02</div>
+            <h3>Exterior painting</h3>
+            <p>Weather-ready protection and color that gives your home a confident new presence.</p>
+          </article>
+
+          <article class="service-panel service-panel-pattern reveal">
+            <div class="service-number">03</div>
+            <h3>Remodeling</h3>
+            <p>Kitchens, bathrooms, flooring and finish carpentry coordinated with a practical eye.</p>
+          </article>
+
+          <article class="service-panel reveal">
+            <div class="service-number">04</div>
+            <h3>Repairs and prep</h3>
+            <p>Drywall, surface repair and the quiet details that make the final result feel complete.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section work" id="work">
+        <div class="work-heading reveal">
+          <p class="eyebrow">Selected transformations</p>
+          <h2>Work that feels at home.</h2>
+        </div>
+
+        <div class="project project-large reveal">
+          <div class="project-media">
+            <img
+              src="/assets/project-kitchen.png"
+              alt="Completed kitchen remodel with green cabinetry and white stone counters"
+              width="1456"
+              height="1086"
+              loading="lazy"
+            />
+          </div>
+          <div class="project-copy">
+            <p>Kitchen remodeling</p>
+            <h3>Better flow, richer color, a finish made for daily life.</h3>
+            <span>Cabinetry, paint and finish work</span>
           </div>
         </div>
 
-        <div class="aa-col-6">
-          <img class="aa-image" src="https://hc25uq2e2j1xyd2f.public.blob.vercel-storage.com/sites/aa-painting-remodeling/02-whatsapp-image-2026-05-25-at-11-15-50-am-5.jpg" alt="AA Painting &amp; Remodeling project" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="aa-about" class="aa-section aa-white">
-    <div class="aa-inner">
-      <div class="aa-row">
-        <div class="aa-col-5">
-          <img class="aa-image" src="https://hc25uq2e2j1xyd2f.public.blob.vercel-storage.com/sites/aa-painting-remodeling/04-bath-tub-surround.jpg" alt="AA Painting &amp; Remodeling bathroom remodeling project" loading="lazy">
-        </div>
-
-        <div class="aa-col-7 aa-stack">
-          <p class="aa-eyebrow">About AA Painting &amp; Remodeling</p>
-          <h2>Trusted Home Repair Experts</h2>
-          <p class="aa-text">At AA Painting &amp; Remodeling, we specialize in high-quality home repair and remodeling services. Our team is dedicated to transforming your property with professionalism and precision, whether the job is an interior update, drywall repair, bathroom improvement, or exterior enhancement.</p>
-
-          <div class="aa-card-grid">
-            <article class="aa-card">
-              <span class="aa-index">01</span>
-              <h3>Free quote first</h3>
-              <p>Share the project details and receive a clear next step before committing.</p>
-            </article>
-
-            <article class="aa-card">
-              <span class="aa-index">02</span>
-              <h3>Direct communication</h3>
-              <p>We stay in constant communication until the job is done.</p>
-            </article>
-
-            <article class="aa-card">
-              <span class="aa-index">03</span>
-              <h3>Painting and remodeling</h3>
-              <p>One team for painting, drywall, repairs, and finish improvements.</p>
-            </article>
+        <div class="project project-offset reveal">
+          <div class="project-media">
+            <img
+              src="/assets/project-exterior.png"
+              alt="Freshly painted deep green craftsman home with warm white trim"
+              width="1456"
+              height="1086"
+              loading="lazy"
+            />
+          </div>
+          <div class="project-copy">
+            <p>Exterior painting</p>
+            <h3>Protection from the weather. Presence from the street.</h3>
+            <span>Surface preparation, siding and trim</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <section id="aa-gallery" class="aa-section">
-    <div class="aa-inner">
-      <div class="aa-row aa-gallery-head">
-        <div class="aa-col-7 aa-stack">
-          <p class="aa-eyebrow">Project Gallery</p>
-          <h2>Real painting and remodeling work</h2>
+      <section class="section process" id="process">
+        <div class="process-statement reveal">
+          <h2>A smoother project<br />starts before the first brush.</h2>
         </div>
 
-        <div class="aa-col-5">
-          <p class="aa-text">A 3x3 gallery using project images, each with a visible title and caption.</p>
+        <div class="process-grid">
+          <article class="process-step reveal">
+            <span>Listen</span>
+            <h3>We start with your home and your priorities.</h3>
+            <p>We walk the space, discuss options and make sure the scope fits what you actually need.</p>
+          </article>
+          <article class="process-step reveal">
+            <span>Prepare</span>
+            <h3>Every detail gets a clear plan.</h3>
+            <p>You receive a practical estimate, schedule and preparation guide before work begins.</p>
+          </article>
+          <article class="process-step reveal">
+            <span>Build</span>
+            <h3>We protect, execute and communicate.</h3>
+            <p>The team keeps the site orderly and keeps you informed as the work takes shape.</p>
+          </article>
+          <article class="process-step reveal">
+            <span>Finish</span>
+            <h3>We review the result together.</h3>
+            <p>A careful walkthrough makes sure the final details are complete and the space is ready.</p>
+          </article>
         </div>
-      </div>
+      </section>
 
-      <div class="aa-gallery">
-        <figure>
-          <img src="https://hc25uq2e2j1xyd2f.public.blob.vercel-storage.com/sites/aa-painting-remodeling/01-whatsapp-image-2026-05-25-at-11-15-50-am-2.jpg" alt="Interior painting preparation" loading="lazy">
-          <figcaption><span>Interior painting preparation</span><span class="aa-gallery-number">01</span></figcaption>
-        </figure>
+      <section class="section about" id="about">
+        <div class="about-image reveal">
+          <img
+            src="/assets/hero-painting.png"
+            alt="Careful painting work in a finished residential interior"
+            width="1536"
+            height="1024"
+            loading="lazy"
+          />
+        </div>
+        <div class="about-copy reveal">
+          <h2>Built around respect for your home.</h2>
+          <p>
+            Good work is more than a polished final photo. It is arriving prepared, communicating clearly and treating every room like people live there.
+          </p>
+          <blockquote>
+            “The goal is simple: make the project feel organized and the result feel completely yours.”
+          </blockquote>
+          <a class="text-link" href="#contact">Start a conversation <span aria-hidden="true">↘</span></a>
+        </div>
+      </section>
 
-        <figure>
-          <img src="https://hc25uq2e2j1xyd2f.public.blob.vercel-storage.com/sites/aa-painting-remodeling/02-whatsapp-image-2026-05-25-at-11-15-50-am-5.jpg" alt="Commercial repaint project" loading="lazy">
-          <figcaption><span>Commercial repaint project</span><span class="aa-gallery-number">02</span></figcaption>
-        </figure>
+      <section class="section contact" id="contact">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Tell us about your project</p>
+          <h2>Ready for a home that feels finished?</h2>
+          <p>Share a few details. We will prepare your request so you can send it through your preferred email app.</p>
+        </div>
 
-        <figure>
-          <img src="https://hc25uq2e2j1xyd2f.public.blob.vercel-storage.com/sites/aa-painting-remodeling/03-whatsapp-image-2026-05-25-at-11-15-51-am-3.jpg" alt="Drywall and surface repair" loading="lazy">
-          <figcaption><span>Drywall and surface repair</span><span class="aa-gallery-number">03</span></figcaption>
-        </figure>
-
-        <figure>
-          <img src="https://hc25uq2e2j1xyd2f.public.blob.vercel-storage.com/sites/aa-painting-remodeling/04-bath-tub-surround.jpg" alt="Bathroom surround remodeling" loading="lazy">
-          <figcaption><span>Bathroom surround remodeling</span><span class="aa-gallery-number">04</span></figcaption>
-        </figure>
-
-        <figure>
-          <img src="https://hc25uq2e2j1xyd2f.public.blob.vercel-storage.com/sites/aa-painting-remodeling/05-bathroom-floor-coating.jpg" alt="Floor coating and bathroom finish" loading="lazy">
-          <figcaption><span>Floor coating and bathroom finish</span><span class="aa-gallery-number">05</span></figcaption>
-        </figure>
-
-        <figure>
-          <img src="https://hc25uq2e2j1xyd2f.public.blob.vercel-storage.com/sites/aa-painting-remodeling/06-ceiling-drywall.jpg" alt="Ceiling drywall repair" loading="lazy">
-          <figcaption><span>Ceiling drywall repair</span><span class="aa-gallery-number">06</span></figcaption>
-        </figure>
-
-        <figure>
-          <img src="https://hc25uq2e2j1xyd2f.public.blob.vercel-storage.com/sites/aa-painting-remodeling/07-commercial-accent-wall.jpg" alt="Commercial accent wall painting" loading="lazy">
-          <figcaption><span>Commercial accent wall painting</span><span class="aa-gallery-number">07</span></figcaption>
-        </figure>
-
-        <figure>
-          <img src="https://hc25uq2e2j1xyd2f.public.blob.vercel-storage.com/sites/aa-painting-remodeling/08-commercial-hallway-prep.jpg" alt="Hallway prep and repaint" loading="lazy">
-          <figcaption><span>Hallway prep and repaint</span><span class="aa-gallery-number">08</span></figcaption>
-        </figure>
-
-        <figure>
-          <img src="https://hc25uq2e2j1xyd2f.public.blob.vercel-storage.com/sites/aa-painting-remodeling/09-drywall-finish-taping.jpg" alt="Drywall finish and taping" loading="lazy">
-          <figcaption><span>Drywall finish and taping</span><span class="aa-gallery-number">09</span></figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-</div>
-
-
-<!-- PARTE 3/3: CONTACT + QUOTE + FAQ + FOOTER - pegar después de la parte 2 -->
-<div class="aa-fullbleed">
-  <section id="aa-contact" class="aa-section aa-contact">
-    <div class="aa-inner">
-      <div class="aa-row">
-        <div class="aa-col-6 aa-stack aa-contact-info">
-          <p class="aa-eyebrow">Contact Us</p>
-          <h2>Better yet, see us in person!</h2>
-          <p class="aa-text">We stay in constant communication with our customers until the job is done. To get a free quote, or if you have questions or special requests, just drop us a line.</p>
-
-          <address class="aa-business">
-            <strong>AA Painting &amp; Remodeling</strong>
-            <a href="tel:+13365609847">+1 (336) 560-9847</a>
-            <a href="mailto:quotes@aapaintingremodeling.com">quotes@aapaintingremodeling.com</a>
-            <span>908 Carter St, High Point, NC 27260</span>
-            <span>Hours: 09:00 a.m. – 05:00 p.m.</span>
-          </address>
-
-          <div class="aa-button-row">
-            <a class="aa-btn aa-btn-dark" href="#aa-quote">Get a Free Quote!</a>
-            <a class="aa-btn aa-btn-outline" href="tel:+13365609847">Call Now</a>
+        <form class="estimate-form reveal" data-estimate-form novalidate>
+          <div class="form-row">
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" autocomplete="name" required />
+              <small>Please enter your name.</small>
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" autocomplete="email" required />
+              <small>Please enter a valid email.</small>
+            </label>
           </div>
-        </div>
-
-        <div class="aa-col-6">
-          <div class="aa-map">
-            <iframe title="AA Painting & Remodeling location map" src="https://maps.google.com/maps?q=908%20Carter%20St%2C%20High%20Point%2C%20NC%2027260&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="aa-quote" class="aa-section aa-quote">
-    <div class="aa-inner">
-      <div class="aa-form-box">
-        <p class="aa-eyebrow">Get a Free Quote</p>
-        <h2>Tell us what you need repaired, painted, or remodeled.</h2>
-        <p class="aa-text">Share your address, timeline, and project details; AA Painting &amp; Remodeling will contact you with the next step.</p>
-
-        <!-- IMPORTANTE:
-             Este formulario usa mailto para evitar el endpoint localhost del archivo original.
-             Para producción, cámbialo por un webhook real, GHL, GoDaddy Forms o tu endpoint backend. -->
-        <form class="aa-form" action="mailto:quotes@aapaintingremodeling.com" method="post" enctype="text/plain">
           <label>
-            Nombre
-            <input autocomplete="name" maxlength="120" name="name" required>
+            <span>What would you like to improve?</span>
+            <select name="service" required>
+              <option value="">Select a service</option>
+              <option>Interior painting</option>
+              <option>Exterior painting</option>
+              <option>Kitchen or bathroom remodel</option>
+              <option>Repairs and preparation</option>
+              <option>Other residential project</option>
+            </select>
+            <small>Please choose a service.</small>
           </label>
-
           <label>
-            Email
-            <input autocomplete="email" maxlength="160" name="email" type="email">
+            <span>Project details</span>
+            <textarea name="details" rows="4" placeholder="Rooms, surfaces, timing and anything else we should know" required></textarea>
+            <small>Please tell us a little about the project.</small>
           </label>
-
-          <label>
-            Teléfono
-            <input autocomplete="tel" maxlength="40" name="phone" type="tel">
-          </label>
-
-          <label class="aa-wide">
-            Mensaje
-            <textarea maxlength="2000" name="message" required></textarea>
-          </label>
-
-          <button class="aa-btn" type="submit">Send Request</button>
+          <button class="button button-primary" type="submit">Prepare estimate request</button>
+          <p class="form-note">Submitting opens your email app. No information is stored on this website.</p>
+          <p class="form-status" role="status" aria-live="polite" data-form-status></p>
         </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-top">
+        <a class="brand brand-footer" href="#top">
+          <span class="brand-mark" aria-hidden="true">AA</span>
+          <span class="brand-name">Painting <span>&amp;</span> Remodeling</span>
+        </a>
+        <p>Residential painting and remodeling with a careful eye and a clean finish.</p>
       </div>
-    </div>
-  </section>
-
-  <section id="aa-faq" class="aa-section aa-faq">
-    <div class="aa-inner">
-      <div class="aa-stack" style="text-align:center;align-items:center;">
-        <p class="aa-eyebrow">FAQ</p>
-        <h2>Questions before your free quote</h2>
-        <p class="aa-text">Quick answers before you call or send your project details.</p>
-      </div>
-
-      <div class="aa-faq-list">
-        <details>
-          <summary>How do I request a free quote?</summary>
-          <p>Use the form or call +1 (336) 560-9847 with your project details, address, and preferred schedule.</p>
-        </details>
-
-        <details>
-          <summary>What information should I send?</summary>
-          <p>Send the type of work, photos if available, the property address, and any deadline or special request.</p>
-        </details>
-
-        <details>
-          <summary>Do you handle both painting and remodeling?</summary>
-          <p>Yes. AA Painting &amp; Remodeling supports painting, drywall, bathroom updates, home repairs, and related renovation tasks.</p>
-        </details>
-
-        <details>
-          <summary>Where is AA Painting &amp; Remodeling located?</summary>
-          <p>The business is located at 908 Carter St, High Point, NC 27260.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <footer class="aa-section aa-footer">
-    <div class="aa-inner">
-      <div class="aa-row">
-        <div class="aa-col-6 aa-stack">
-          <a class="aa-footer-brand" href="#aa-painting-page-top">
-            <img src="https://hc25uq2e2j1xyd2f.public.blob.vercel-storage.com/sites/cmrcfazsy0001kuz4nkx66oxj/9a13a374-5541-4864-8ed7-7e13cdcf1929.webp" alt="">
-            <span>AA Painting &amp; Remodeling</span>
-          </a>
-          <p>Expert Home Repair &amp; Renovation Services</p>
-        </div>
-
-        <div class="aa-col-6">
-          <address class="aa-business">
-            <strong>AA Painting &amp; Remodeling</strong>
-            <a href="tel:+13365609847">+1 (336) 560-9847</a>
-            <a href="mailto:quotes@aapaintingremodeling.com">quotes@aapaintingremodeling.com</a>
-            <span>908 Carter St, High Point, NC 27260</span>
-            <a class="aa-btn" href="#aa-quote">Request a Free Quote</a>
-          </address>
+      <div class="footer-bottom">
+        <p>© <span data-year></span> AA Painting &amp; Remodeling. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#services">Services</a>
+          <a href="#work">Projects</a>
+          <a href="#contact">Estimate</a>
+          <a href="#top">Back to top ↑</a>
         </div>
       </div>
-    </div>
-  </footer>
-</div>
+    </footer>
+  </body>
+</html>
