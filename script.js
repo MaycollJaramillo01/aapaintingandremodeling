@@ -81,8 +81,8 @@ estimateForm?.addEventListener("submit", (event) => {
     `Name: ${data.get("name")}\nEmail: ${data.get("email")}\nService: ${data.get("service")}\n\nProject details:\n${data.get("details")}`
   );
 
-  formStatus.textContent = "Your request is ready. Choose your email app to send it.";
-  window.location.href = `mailto:?subject=${subject}&body=${body}`;
+  formStatus.textContent = "Your draft is ready. Review and send it from your email app.";
+  window.location.href = `mailto:abellfarmey@gmail.com?subject=${subject}&body=${body}`;
 });
 
 estimateForm?.querySelectorAll("input, select, textarea").forEach((field) => {
